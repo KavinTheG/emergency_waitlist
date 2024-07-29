@@ -5,10 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wait Time</title>
     <link rel="stylesheet" href="style.css">
+
+    <script>
+
+        const userid = sessionStorage.getItem('userid');
+        console.log(userid);
+
+        fetch('http://localhost:8001/api.php?action=getWaitTime', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({
+                'userid': userid
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Wait time:', data.waitTime);
+            document.getElementById('waitTime').textContent = 'Your Wait Time Is: ' + data.waitTime;
+        })
+        .catch(error => console.error('Error:', error));
+
+    </script>
 </head>
 <body>
     <div class="container">
-        <h1>Your Wait Time Is:</h1>
+        <h1 id="waitTime">Your Wait Time Is:</h1>
         
     </div>
 </body>

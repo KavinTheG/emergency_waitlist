@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function validateUserForm() {
+            event.preventDefault(); 
+            const name = document.getElementById('name').value;
+            const userid = document.getElementById('code').value;
+
+            console.log("validateUserForm is called");
+                        
+            fetch('api.php?action=checkUserId', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `name=${(name)}&userid=${(userid)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.valid) {
+                    sessionStorage.setItem('userid',userid);
+                    window.location.href = 'wait_time.html'; 
+                } else {
+                    console.log("Staff ID is not valid.");
+                    alert("Invalid username or password.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });            
+            
+
+            return false;
+        }
+
+    </script>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Patient Login</h1>
+        <form>
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="text" id="code" placeholder="3-Letter Code" required>
+            <button onclick="validateUserForm()">Login</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+
+        <a href="admin_login.html">
+            <button>Admin Login</button>
+        </a>
+    </div>
+</body>
+</html>

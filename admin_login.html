@@ -6,17 +6,41 @@
     <title>Admin Login</title>
     <link rel="stylesheet" href="style.css">
     <script>
-        function validateAdminForm() {
-            // Add form validation logic if needed
-            location.href = 'patient_list.html';
-            return false;
+        function validateAdminForm(event) {
+            event.preventDefault(); 
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            console.log('Username:', username);
+            console.log('Password:', password);
+
+            fetch('http://localhost:8001/api.php?action=checkStaffId', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `staffid=${username}&password=${password}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.valid) {
+                    console.log("Staff exists");
+                    window.location.href = 'patient_list.html'; 
+                } else {
+                    console.log("Staff ID is not valid.");
+                    alert("Invalid username or password.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
         }
     </script>
 </head>
 <body>
     <div class="login-container">
         <h1>Admin Login</h1>
-        <form onsubmit="return validateAdminForm()">
+        <form onsubmit="validateAdminForm(event)">
             <input type="text" id="username" placeholder="Username" required>
             <input type="password" id="password" placeholder="Password" required>
             <button type="submit">Login</button>
