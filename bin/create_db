@@ -1,0 +1,43 @@
+#!/bin/bash
+
+DB="csi3140"
+
+psql -c "DROP DATABASE IF EXISTS $DB;"
+psql -c "CREATE DATABASE $DB;"
+
+# Create the patients and staff tables
+psql -d $DB -c "
+CREATE TABLE patients (
+    userid VARCHAR(3) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    severity_of_injury VARCHAR(10) NOT NULL,
+    approx_wait_time INTEGER NOT NULL
+);"
+
+psql -d $DB -c "
+CREATE TABLE staff (
+    staffid VARCHAR(3) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL
+);"
+
+# Insert sample data into patients table
+psql -d $DB -c "
+INSERT INTO patients (userid, name, severity_of_injury, approx_wait_time) VALUES
+('ABC', 'John Doe', 'Low', 30),
+('DEF', 'Jane Smith', 'Medium', 45),
+('GHI', 'Alice Johnson', 'High', 15),
+('JKL', 'Bob Brown', 'Low', 20),
+('MNO', 'Carol White', 'High', 10),
+('PQR', 'David Lee', 'Medium', 40),
+('STU', 'Emma Brown', 'Low', 25),
+('VWX', 'George Clark', 'High', 5),
+('YZA', 'Hannah White', 'Medium', 35),
+('BCD', 'Ivy Green', 'Low', 50);"
+
+# Insert sample data into staff table
+psql -d $DB -c "
+INSERT INTO staff (staffid, password) VALUES
+('S01', 'password123'),
+('S02', 'password456'),
+('S03', 'password789');"
+

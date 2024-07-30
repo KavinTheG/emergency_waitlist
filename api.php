@@ -12,12 +12,12 @@ function connectDB() {
     global $conn;
 
     $host = "localhost";
-    $dbname = "CSI3140";
-    $user = "postgres";
+    $dbname = "csi3140";
+    //$user = "postgres";
     $port = "5432";
 
-    $conn = pg_connect("host=$host dbname=$dbname user=$user port=$port");
-
+    //$conn = pg_connect("host=$host dbname=$dbname user=$user port=$port");
+    conn = pg_connect("host=$host dbname=$dbname port=$port");
     if (!$conn) {
         echo "Error: Unable to connect to database.\n";
         exit;

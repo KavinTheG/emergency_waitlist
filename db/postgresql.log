@@ -1,0 +1,19 @@
+2024-07-30 18:12:20.750 EDT [28666] LOG:  starting PostgreSQL 16.3 (Postgres.app) on aarch64-apple-darwin21.6.0, compiled by Apple clang version 14.0.0 (clang-1400.0.29.102), 64-bit
+2024-07-30 18:12:20.751 EDT [28666] LOG:  listening on IPv6 address "::1", port 5432
+2024-07-30 18:12:20.751 EDT [28666] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2024-07-30 18:12:20.752 EDT [28666] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2024-07-30 18:12:20.753 EDT [28669] LOG:  database system was shut down at 2024-07-30 18:12:20 EDT
+2024-07-30 18:12:20.755 EDT [28666] LOG:  database system is ready to accept connections
+2024-07-30 18:12:44.269 EDT [28722] FATAL:  database "csi3140" does not exist
+2024-07-30 18:17:20.752 EDT [28667] LOG:  checkpoint starting: time
+2024-07-30 18:20:33.855 EDT [28667] LOG:  checkpoint complete: wrote 1913 buffers (11.7%); 1 WAL file(s) added, 0 removed, 0 recycled; write=193.056 s, sync=0.017 s, total=193.104 s; sync files=617, longest=0.001 s, average=0.001 s; distance=8916 kB, estimate=8916 kB; lsn=0/1DBB150, redo lsn=0/1DBB118
+2024-07-30 18:46:19.141 EDT [46116] ERROR:  database "samplephp" does not exist
+2024-07-30 18:46:19.141 EDT [46116] STATEMENT:  DROP DATABASE samplephp
+2024-07-30 18:47:20.822 EDT [28667] LOG:  checkpoint starting: time
+2024-07-30 18:48:57.186 EDT [28667] LOG:  checkpoint complete: wrote 954 buffers (5.8%); 0 WAL file(s) added, 0 removed, 1 recycled; write=96.349 s, sync=0.012 s, total=96.364 s; sync files=310, longest=0.001 s, average=0.001 s; distance=4352 kB, estimate=8459 kB; lsn=0/21FB378, redo lsn=0/21FB340
+2024-07-30 18:53:39.000 EDT [46731] FATAL:  database "DB" does not exist
+2024-07-30 18:53:39.021 EDT [46734] FATAL:  database "DB" does not exist
+2024-07-30 18:53:39.039 EDT [46737] FATAL:  database "DB" does not exist
+2024-07-30 18:53:39.055 EDT [46740] FATAL:  database "DB" does not exist
+2024-07-30 18:54:07.733 EDT [28667] LOG:  checkpoint starting: immediate force wait
+2024-07-30 18:54:07.759 EDT [28667] LOG:  checkpoint complete: wrote 941 buffers (5.7%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.016 s, sync=0.010 s, total=0.027 s; sync files=303, longest=0.001 s, average=0.001 s; distance=4324 kB, estimate=8046 kB; lsn=0/2634378, redo lsn=0/2634340

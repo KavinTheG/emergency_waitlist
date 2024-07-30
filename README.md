@@ -48,6 +48,12 @@ Users must the change directory into the project directory
 cd emergency_waitlist
 ```
 
+Call the bash script in the bin directory to setup the database for this project
+
+```
+./bin/create_db
+```
+
 Finally, users must enter the following command to locally deploy this app.
 
 ```
