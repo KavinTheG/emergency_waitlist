@@ -58,7 +58,7 @@ Users may visit localhost:8001 on a browser to interact with this app.
 
 ### Patient Table Repopulation
 
-As patients are treated, they will be removed from the database. Since eventually all patients will be remoed, users link below to repopulate the **patients** table. This feature was implemented for testing purposes.
+As patients are treated, they will be removed from the database. Since eventually all patients will be removed, users can vis the link below to repopulate the **patients** table. This feature was implemented for testing purposes.
 
 ```http://localhost:8001/test.html```
 
