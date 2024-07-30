@@ -56,13 +56,27 @@ php -S localhost:8001
 
 Users may visit localhost:8001 on a browser to interact with this app. 
 
+### Patient Table Repopulation
+
+As patients are treated, they will be removed from the database. Since eventually all patients will be remoed, users link below to repopulate the **patients** table. This feature was implemented for testing purposes.
+
+```http://localhost:8001/test.html```
 
 ### Website
 
 #### Login Page
+Users will be greeted with the following site. Patients will use this login page to verify their credential. Users must click on the *Admin Login* button to login as an admin.
+![patient_login](https://github.com/user-attachments/assets/089ad67c-40ef-4e86-b5b0-39c981678549)
 
 #### Patient Wait Time
+After loggin in, patients will be shown their approximate wait time. As we have entered the credentials of John Doe, we can see that the value shown below matches the wait time shown in the database.
+![patient_wait_time](https://github.com/user-attachments/assets/2952c8a8-c720-408c-b166-5f824b5e37c0)
 
 #### Admin Page
+If the user has logged in as an admin, they will be greeted with a list of patients as shown below. Admins are able to treat the highest priority patient which is determine by their approximate wait time and severity of injury. 
+![patient_list](https://github.com/user-attachments/assets/edb3edba-13e3-4738-a39d-e15c77dcab8b)
 
 #### Treating Patients
+We can observe that by treating patients, we are removing patients from the database as well as decreasing the wait time for every patient. 
+
+![patients_treated](https://github.com/user-attachments/assets/0ffc99fa-d474-4ab6-8f46-7c6a10295b3e)
